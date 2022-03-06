@@ -24,7 +24,15 @@ export function CardList({ cards }: CardsProps): JSX.Element {
 
   return (
     <>
-      {/* TODO CARD GRID */}
+      { cards?.map((card: Card) => (
+        <div key={card.id}>
+          <h1>{card.description}</h1>
+          <h1>{card.id}</h1>
+          <h1>{card.title}</h1>
+          <h1>{card.ts}</h1>
+          <img  src={card.url}/>
+        </div>
+      )) /* TODO CARD GRID */}
 
       {/* TODO MODALVIEWIMAGE */}
     </>

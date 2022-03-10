@@ -16,30 +16,29 @@ interface CardsProps {
 }
 
 export function CardList({ cards }: CardsProps): JSX.Element {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [url,setUrl] = useState('')
   // TODO MODAL USEDISCLOSURE
 
   // TODO SELECTED IMAGE URL STATE
 
   // TODO FUNCTION HANDLE VIEW IMAGE
+  function viewImage(url: string){
+    setUrl(url)
+    onOpen()
+  }
 
   return (
     <>
     <SimpleGrid columns={3} spacing={10}>
       { cards?.map((card: Card) => (
-        <Box backgroundColor={"pGray.800"} display={"flex"} width={"293.33px"} height={"290px"} key={card.id}  borderRadius='lg' overflow='hidden' flexDir={"column"}>
-         <Box borderRadius='lg' height={"192.64px"} >
-          <img  width={"293.33px"} height={"192.64px"} src={card.url}/>
-
-         </Box>
-         <Box  width={"100%"} fontFamily="Roboto" margin={"15px"} marginLeft={"25px"}>
-          <Text fontSize='2xl' color={"pGray.50"}  fontWeight={"bold"} marginBlockEnd={"6px"}>{card.title}</Text>
-          <Text fontSize='lg' color={"pGray.100"} fontWeight={"regular"}>{card.description}</Text>
-
-         </Box>
-        </Box>
+        <Card data={card} viewImage={()=> viewImage(card.url)} key={card.id}/>
+    
       ))}
 
-      {/* TODO MODALVIEWIMAGE */}
+      <ModalViewImage imgUrl={url} isOpen={isOpen} onClose={onClose} />
+
+    
       </SimpleGrid>
     </>
   );

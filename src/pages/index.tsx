@@ -60,7 +60,7 @@ export default function Home(): JSX.Element {
   const formattedData  = useMemo(() => {
     const formatted  = data?.pages.flatMap(page => page.data.flat())
 
-    return formatted 
+    return formatted
     
   }, [data]);
 

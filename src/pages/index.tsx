@@ -64,18 +64,18 @@ export default function Home(): JSX.Element {
     
   }, [data]);
 
-  // TODO RENDER LOADING SCREEN
-
-  // TODO RENDER ERROR SCREEN
-
   return (
     <>
+    { isLoading ? <Loading /> : isError ? <Error /> : 
+      <>
       <Header />
 
       <Box maxW={1120} px={20} mx="auto" my={20}>
          <CardList cards={formattedData} />
-        {/* TODO RENDER LOAD MORE BUTTON IF DATA HAS NEXT PAGE */}
+        {hasNextPage && <Button marginBlockStart={10} isLoading={isFetchingNextPage} onClick={() => fetchNextPage()}>Carregar mais</Button>}
       </Box>
+      </>
+    }
     </>
   );
 }

@@ -24,7 +24,7 @@ export function CardList({ cards }: CardsProps): JSX.Element {
 
   return (
     <>
-    <SimpleGrid columns={3} spacing={5}>
+    <SimpleGrid columns={3} spacing={10}>
       { cards?.map((card: Card) => (
         <Box backgroundColor={"pGray.800"} display={"flex"} width={"293.33px"} height={"290px"} key={card.id}  borderRadius='lg' overflow='hidden' flexDir={"column"}>
          <Box borderRadius='lg' height={"192.64px"} >
@@ -37,7 +37,7 @@ export function CardList({ cards }: CardsProps): JSX.Element {
 
          </Box>
         </Box>
-      )) /* TODO CARD GRID */}
+      ))}
 
       {/* TODO MODALVIEWIMAGE */}
       </SimpleGrid>

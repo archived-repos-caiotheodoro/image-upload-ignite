@@ -25,9 +25,9 @@ export function ModalViewImage({
   return (
   <Modal isOpen={isOpen} onClose={onClose} >
      <ModalOverlay />
-        <ModalContent  maxW={'900px'} maxH={'600px'}>
-          <ModalBody justifyContent={"center"} sx={{padding: '0px'}} >
-            <Image src={imgUrl} minWidht={'600px'} maxW={'900px'} maxH={'600px'}/>
+        <ModalContent   maxW={'900px'} maxH={'600px'}  w={"auto"}>
+          <ModalBody justifyContent={"center"} sx={{padding: '0px'}} display={"flex"} >
+            <Image src={imgUrl}  maxW={'900px'} maxH={'600px'} />
           </ModalBody>
 
           <ModalFooter backgroundColor={"pGray.800"} justifyContent={"left"} padding={"4px"}   borderRadius={'0px 0px 6px 6px'}>
